@@ -1,0 +1,29 @@
+<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="navbar-inner">
+  <div class="container">
+          <%= link_to "twitt app", '#', id:"logo" %>
+          <nav>
+          <ul class="nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <% if signed_in? %>
+           <li><%= link_to "Users", '#' %></li>
+           <li id="fat-menu" class="btn-group">
+           <button type="button" href=""> Account <b class="caret"></b></button>
+           <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+           <div class="dropdown-menu">
+            <li class="dropdown-item"><%= link_to "Profile", current_user %></li>
+            <li class="dropdown-item"><%= link_to "Settings", edit_user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li class="dropdown-item"><%= link_to "Sign out", signout_path %> </li>
+           </div>
+
+          </li>
+            <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+            <% end %>
+          </ul>
+          </nav>
+  </div>
+</div>
+</header>
